@@ -1,5 +1,7 @@
 const fs = require("fs");
 const path = require("path");
+const UIDGenerator = require("uid-generator");
+const uidgen = new UIDGenerator();
 
 class Movie {
   constructor(name, descrption, genre, year, imageUrl, date, actors) {
@@ -12,13 +14,15 @@ class Movie {
     this.actors = actors;
   }
 
-  save() {
+  async save() {
     const oldData = require(path.join(
       __dirname,
       "../",
       "/config/database.json"
     ));
+    const id = await uidgen.generate();
     const data = {
+      id: id,
       name: this.name,
       descrption: this.descrption,
       genre: this.genre,

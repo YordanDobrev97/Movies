@@ -13,12 +13,19 @@ app.engine(
 );
 app.set("view engine", "hbs");
 
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use("/public", express.static(__dirname + "/public"));
 app.use(bodyParser.urlencoded({ extended: false }));
 
 app.get("/", (req, res) => {
   const movies = movieController.all();
   res.render(__dirname + "/views/home/index", { movies: movies });
+});
+
+app.get("/movie/:id", (req, res) => {
+  const { id } = req.params;
+  const movie = movieController.getById(id);
+  res.render(__dirname + "/views/movie/getById", { movie });
 });
 
 app.get("/addMovie", (req, res) => {

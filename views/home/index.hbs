@@ -3,8 +3,14 @@
 <div class="movie-container">
     {{#each movies}}
     <div class="movie">
-        <h1 class="title">{{name}}</h1>
-        <img src={{imageUrl}} />
+        <div>
+            <h1 class="title">{{name}}</h1>
+        </div>
+        <div>
+            <a href='/movie/{{id}}'>
+                <img src={{imageUrl}} />
+            </a>
+        </div>
     </div>
     {{/each}}
 </div>

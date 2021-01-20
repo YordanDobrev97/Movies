@@ -72,10 +72,22 @@ li a {
   justify-content: center;
 }
 
-.movie > img {
+.movie {
+  background: darkgray;
+  width: 287px;
+  margin: 12px;
+}
+
+.movie h1 {
+  text-align: center;
+}
+
+.movie img {
   width: 150px;
   height: 180px;
-  margin: 10px 10px;
+  display: block;
+  margin: 8px auto 14px auto;
+  width: 50%;
 }
 
 .btn-primary {
