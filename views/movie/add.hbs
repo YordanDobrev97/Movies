@@ -1,0 +1,37 @@
+<link rel="stylesheet" href="/public/movie.css">
+
+<h1 class="create-movie">Add Movie</h1>
+
+<form method="POST" action="/addMovie">
+    <div class="row">
+        <label>Title</label>
+        <input type="text" name="title" />
+    </div>
+
+    <div class="row">
+        <label>Description</label>
+        <input type="text" name="description" />
+    </div>
+
+    <div class="row">
+        <label>Year</label>
+        <input type="text" name="year" />
+    </div>
+
+    <div class="row">
+        <label>Date</label>
+        <input type="date" name="date" />
+    </div>
+
+    <div class="row">
+        <label>Genre</label>
+        <input type="text" name="genre" />
+    </div>
+
+    <div class="row">
+        <label>ImageUrl</label>
+        <input type="text" name="image" />
+    </div>
+
+    <button class="create-btn">Add</button>
+</form>

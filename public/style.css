@@ -5,6 +5,7 @@
 
 body {
   background: #233432;
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
 }
 
 .site {
@@ -75,4 +76,20 @@ li a {
   width: 150px;
   height: 180px;
   margin: 10px 10px;
+}
+
+.btn-primary {
+  font-family: Arial, Helvetica, sans-serif;
+  padding: 3px;
+  background-color: #007bff;
+  color: white;
+  border-radius: 5px;
+  margin: 8px;
+  width: 81px;
+  height: 30px;
+}
+
+.title {
+  text-align: center;
+  color: white;
 }
