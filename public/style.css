@@ -48,8 +48,8 @@ li a {
 }
 
 .slider img {
-  width: 100px;
-  height: 150px;
+  width: 80px;
+  height: 120px;
 }
 
 .btn-left,
@@ -83,8 +83,8 @@ li a {
 }
 
 .movie img {
-  width: 150px;
-  height: 180px;
+  width: 80px;
+  height: 130px;
   display: block;
   margin: 8px auto 14px auto;
   width: 50%;
