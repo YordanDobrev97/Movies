@@ -1,50 +1,23 @@
-const fs = require("fs");
-const path = require("path");
-const UIDGenerator = require("uid-generator");
-const uidgen = new UIDGenerator();
+const connectionString = `mongodb://localhost:27017/filmi`;
+const mongoose = require("mongoose");
 
-class Movie {
-  constructor(name, descrption, genre, year, imageUrl, date, actors) {
-    this.name = name;
-    this.descrption = descrption;
-    this.genre = genre;
-    this.year = year;
-    this.imageUrl = imageUrl;
-    this.date = date;
-    this.actors = actors;
-  }
+mongoose.connect(connectionString, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+});
 
-  async save() {
-    const oldData = require(path.join(
-      __dirname,
-      "../",
-      "/config/database.json"
-    ));
-    const id = await uidgen.generate();
-    const data = {
-      id: id,
-      name: this.name,
-      descrption: this.descrption,
-      genre: this.genre,
-      year: this.year,
-      imageUrl: this.imageUrl,
-      date: this.date,
-      actors: this.actors,
-    };
+mongoose.connection.once("open", () => console.log("Connection to database!"));
 
-    const allData = [...oldData, data];
+const movieSchema = new mongoose.Schema({
+  name: String,
+  descrption: String,
+  genre: String,
+  year: Number,
+  imageUrl: String,
+  date: Date,
+  actors: Array,
+});
 
-    fs.writeFile(
-      path.join(__dirname, "../", "/config/database.json"),
-      JSON.stringify(allData),
-      (err) => {
-        if (err) {
-          throw err;
-        }
-        console.log("sucessfully added movie.");
-      }
-    );
-  }
-}
+const Movie = mongoose.model("Movie", movieSchema);
 
 module.exports = Movie;

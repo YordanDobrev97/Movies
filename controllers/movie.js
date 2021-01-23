@@ -1,7 +1,6 @@
-const Movie = require("../models/movie");
-const path = require("path");
+const movieService = require("../services/movieService");
 
-module.exports.addMovie = function (
+module.exports.addMovie = async function (
   title,
   description,
   year,
@@ -9,25 +8,15 @@ module.exports.addMovie = function (
   genre,
   imageUrl
 ) {
-  const newMovie = new Movie(
-    title,
-    description,
-    genre,
-    year,
-    imageUrl,
-    date,
-    []
-  );
-  newMovie.save();
+  await movieService.add(title, description, genre, year, imageUrl, date, []);
 };
 
-module.exports.all = function () {
-  const movies = require(path.join(__dirname, "../", "/config/database.json"));
+module.exports.all = async function () {
+  const movies = await movieService.getAll();
   return movies;
 };
 
-module.exports.getById = function (id) {
-  const movies = this.all();
-  const movie = movies.filter((x) => x.id == id)[0];
+module.exports.getById = async function (id) {
+  const movie = await movieService.findById(id);
   return movie;
 };

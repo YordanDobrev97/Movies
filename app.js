@@ -17,14 +17,14 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use("/public", express.static(__dirname + "/public"));
 app.use(bodyParser.urlencoded({ extended: false }));
 
-app.get("/", (req, res) => {
-  const movies = movieController.all();
+app.get("/", async (req, res) => {
+  const movies = await movieController.all();
   res.render(__dirname + "/views/home/index", { movies: movies });
 });
 
-app.get("/movie/:id", (req, res) => {
+app.get("/movie/:id", async (req, res) => {
   const { id } = req.params;
-  const movie = movieController.getById(id);
+  const movie = await movieController.getById(id);
   res.render(__dirname + "/views/movie/getById", { movie });
 });
 
