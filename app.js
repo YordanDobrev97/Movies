@@ -2,9 +2,12 @@ const express = require("express");
 const app = express();
 const handlebars = require("express-handlebars");
 const bodyParser = require("body-parser");
+const cookieParser = require("cookie-parser");
+const movieController = require("./controllers/movie");
+const userController = require("./controllers/user");
+
 const port = 5000;
 
-const movieController = require("./controllers/movie");
 app.engine(
   "hbs",
   handlebars({
@@ -14,6 +17,8 @@ app.engine(
 app.set("view engine", "hbs");
 
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(cookieParser());
+
 app.use("/public", express.static(__dirname + "/public"));
 app.use(bodyParser.urlencoded({ extended: false }));
 
@@ -51,9 +56,15 @@ app.post("/login", (req, res) => {
   res.send("login...");
 });
 
-app.post("/register", (req, res) => {
-  //TODO...
-  res.send("register...");
+app.post("/register", async (req, res) => {
+  const { username, password, confirmPassword } = req.body;
+  const token = await userController.create(
+    username,
+    password,
+    confirmPassword
+  );
+  res.cookie("userToken", token);
+  res.redirect("/login");
 });
 
 app.listen(port, console.log(`Server started at port ${port}`));
