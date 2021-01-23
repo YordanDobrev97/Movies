@@ -32,10 +32,28 @@ app.get("/addMovie", (req, res) => {
   res.render(__dirname + "/views/movie/add");
 });
 
+app.get("/login", (req, res) => {
+  res.render(__dirname + "/views/user/login");
+});
+
+app.get("/register", (req, res) => {
+  res.render(__dirname + "/views/user/register");
+});
+
 app.post("/addMovie", (req, res) => {
   const { title, description, year, date, genre, image } = req.body;
   movieController.addMovie(title, description, year, date, genre, image);
   res.redirect("/");
+});
+
+app.post("/login", (req, res) => {
+  //TODO...
+  res.send("login...");
+});
+
+app.post("/register", (req, res) => {
+  //TODO...
+  res.send("register...");
 });
 
 app.listen(port, console.log(`Server started at port ${port}`));

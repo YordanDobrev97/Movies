@@ -1,0 +1,45 @@
+.user-container {
+  display: flex;
+  flex-wrap: wrap;
+  text-align: center;
+  margin: 0px auto;
+  width: 480px;
+  height: 300px;
+  justify-content: center;
+  align-items: center;
+  background-color: whitesmoke;
+}
+
+h2 {
+  text-align: center;
+  position: absolute;
+  left: 27em;
+  opacity: 0.7;
+}
+
+.row {
+  display: flex;
+  color: black;
+  margin-top: 30px;
+  margin-bottom: 3px;
+}
+
+.row input {
+  width: 300px;
+  height: 25px;
+  margin-left: 70px;
+}
+
+.row label {
+  padding: 9px;
+  width: 20px;
+}
+
+.user-container input.btn-input {
+  width: 305px;
+  height: 30px;
+  margin-top: 15px;
+  margin-left: 90px;
+  background-color: #057eff;
+  color: white;
+}
