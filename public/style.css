@@ -20,6 +20,7 @@ body {
 nav {
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
   align-content: stretch;
   margin: 12px;
   align-items: center;
@@ -28,6 +29,7 @@ nav {
 
 nav ul {
   display: flex;
+  flex-wrap: wrap;
   margin: 5px;
   padding: 12px;
 }
@@ -107,4 +109,14 @@ li a {
 .title {
   text-align: center;
   color: white;
+}
+
+@media only screen and (max-width: 600px) {
+  .search input {
+    width: 130px;
+  }
+
+  .slider {
+    display: none;
+  }
 }
