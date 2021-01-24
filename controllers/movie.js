@@ -20,3 +20,8 @@ module.exports.getById = async function (id) {
   const movie = await movieService.findById(id);
   return movie;
 };
+
+module.exports.latestMovies = async function () {
+  const latestMovies = await movieService.getLatesMovies();
+  return latestMovies;
+};

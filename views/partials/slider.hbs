@@ -4,59 +4,13 @@
             <img src="/public/images/left-arrow.png" />
         </button>
 
+        {{#each slider}}
         <li>
-            <a href="/">
-                <img src="https://images-na.ssl-images-amazon.com/images/I/519HUN4odUL.jpg" alt="">
+            <a href="/movie/{{_id}}">
+                <img src={{imageUrl}}>
             </a>
         </li>
-
-        <li>
-            <a href="/">
-                <img src="https://images-na.ssl-images-amazon.com/images/I/519HUN4odUL.jpg" alt="">
-            </a>
-        </li>
-
-        <li>
-            <a href="/">
-                <img src="https://images-na.ssl-images-amazon.com/images/I/519HUN4odUL.jpg" alt="">
-            </a>
-        </li>
-
-        <li>
-            <a href="/">
-                <img src="https://images-na.ssl-images-amazon.com/images/I/519HUN4odUL.jpg" alt="">
-            </a>
-        </li>
-
-        <li>
-            <a href="/">
-                <img src="https://images-na.ssl-images-amazon.com/images/I/519HUN4odUL.jpg" alt="">
-            </a>
-        </li>
-
-        <li>
-            <a href="/">
-                <img src="https://images-na.ssl-images-amazon.com/images/I/519HUN4odUL.jpg" alt="">
-            </a>
-        </li>
-
-        <li>
-            <a href="/">
-                <img src="https://images-na.ssl-images-amazon.com/images/I/519HUN4odUL.jpg" alt="">
-            </a>
-        </li>
-
-        <li>
-            <a href="/">
-                <img src="https://images-na.ssl-images-amazon.com/images/I/519HUN4odUL.jpg" alt="">
-            </a>
-        </li>
-
-        <li>
-            <a href="/">
-                <img src="https://images-na.ssl-images-amazon.com/images/I/519HUN4odUL.jpg" alt="">
-            </a>
-        </li>
+        {{/each}}
 
         <button class="btn-right">
             <img src="/public/images/right-arrow.png" />

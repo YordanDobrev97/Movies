@@ -35,3 +35,10 @@ module.exports.findById = async function (id) {
     imageUrl: movie.imageUrl,
   };
 };
+
+module.exports.getLatesMovies = async function () {
+  const movies = await Movie.find({}, null, { lean: true })
+    .sort({ date: "desc" })
+    .limit(6);
+  return movies;
+};

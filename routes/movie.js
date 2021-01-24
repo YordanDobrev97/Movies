@@ -5,9 +5,11 @@ const router = express.Router();
 
 router.get("/", authentication, async (req, res) => {
   const movies = await movieController.all();
+  const sliderMovies = await movieController.latestMovies();
 
   res.render("../views/home/index", {
     movies: movies,
+    slider: sliderMovies,
     isAuth: req.isAuth,
   });
 });
