@@ -51,9 +51,13 @@ app.post("/addMovie", (req, res) => {
   res.redirect("/");
 });
 
-app.post("/login", (req, res) => {
-  //TODO...
-  res.send("login...");
+app.post("/login", async (req, res) => {
+  const { username, password } = req.body;
+  const token = await userController.login(username, password);
+  if (token) {
+    res.cookie("userToken", token);
+  }
+  res.redirect("/");
 });
 
 app.post("/register", async (req, res) => {

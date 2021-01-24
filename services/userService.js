@@ -17,12 +17,26 @@ module.exports.register = async function (username, password, confirmPassword) {
   });
 
   const userObj = await newUser.save();
-  const token = jtw.sign(
+  const token = generateToken(userObj);
+  return token;
+};
+
+module.exports.login = async function (username, password) {
+  const user = await User.findOne({ username: username }).lean();
+  const result = await bcrypt.compare(password, user.password);
+
+  if (result) {
+    const token = generateToken(user);
+    return token;
+  }
+  return null;
+};
+function generateToken(userObj) {
+  return jtw.sign(
     {
       userID: userObj._id,
       username: userObj.username,
     },
     privateKey
   );
-  return token;
-};
+}
