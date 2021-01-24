@@ -24,7 +24,11 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 app.get("/", async (req, res) => {
   const movies = await movieController.all();
-  res.render(__dirname + "/views/home/index", { movies: movies });
+  const isAuth = req.cookies["userToken"] ? true : false;
+  res.render(__dirname + "/views/home/index", {
+    movies: movies,
+    isAuth: isAuth,
+  });
 });
 
 app.get("/movie/:id", async (req, res) => {
