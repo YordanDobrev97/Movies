@@ -22,6 +22,6 @@ app.use("/public", express.static(__dirname + "/public"));
 app.use(bodyParser.urlencoded({ extended: false }));
 
 app.use("/", movieRoute);
-app.use("/", userRoute);
+app.use("/user", userRoute);
 
 app.listen(port, console.log(`Server started at port ${port}`));
