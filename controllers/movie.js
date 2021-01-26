@@ -25,3 +25,7 @@ module.exports.latestMovies = async function () {
   const latestMovies = await movieService.getLatesMovies();
   return latestMovies;
 };
+
+module.exports.addComment = async function (userId, movieId, body) {
+  await movieService.addComment(userId, movieId, body);
+};

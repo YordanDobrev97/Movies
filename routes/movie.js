@@ -3,6 +3,8 @@ const movieController = require("../controllers/movie");
 const { authentication } = require("../middleware/auth");
 const router = express.Router();
 
+const jwtDecode = require("jwt-decode");
+
 router.get("/", authentication, async (req, res) => {
   const movies = await movieController.all();
   const sliderMovies = await movieController.latestMovies();
@@ -17,6 +19,7 @@ router.get("/", authentication, async (req, res) => {
 router.get("/movie/:id", authentication, async (req, res) => {
   const { id } = req.params;
   const movie = await movieController.getById(id);
+
   res.render("../views/movie/getById", {
     movie,
     isAuth: req.isAuth,
@@ -32,5 +35,18 @@ router.post("/addMovie", authentication, (req, res) => {
   movieController.addMovie(title, description, year, date, genre, image);
   res.redirect("/");
 });
+
+router.post("/movie/addComment", authentication, (req, res) => {
+  const { id, bodyComment } = req.body;
+  const userId = getUserId(req);
+  movieController.addComment(userId, id, bodyComment);
+  res.redirect("/movie/" + id);
+});
+
+function getUserId(req) {
+  const token = req.cookies["userToken"];
+  const decode = jwtDecode(token);
+  return decode.userID;
+}
 
 module.exports = router;

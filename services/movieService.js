@@ -1,4 +1,5 @@
 const Movie = require("../models/movie");
+const Comment = require("../models/comment");
 
 module.exports.getAll = async function () {
   const all = await Movie.find({}, null, { lean: true });
@@ -29,6 +30,7 @@ module.exports.add = async function (
 module.exports.findById = async function (id) {
   const movie = await Movie.findOne({ _id: id });
   return {
+    id: movie._id,
     name: movie.name,
     descrption: movie.descrption,
     year: movie.year,
@@ -41,4 +43,14 @@ module.exports.getLatesMovies = async function () {
     .sort({ date: "desc" })
     .limit(6);
   return movies;
+};
+
+module.exports.addComment = async function (userId, movieId, content) {
+  const comment = new Comment({
+    content,
+    userId,
+    movieId,
+  });
+
+  await comment.save();
 };
