@@ -1,6 +1,7 @@
 * {
   margin: 0;
   padding: 0;
+  box-sizing: content-box;
 }
 
 body {
@@ -71,13 +72,16 @@ li a {
   background-color: #505050;
   display: flex;
   flex-wrap: wrap;
+  margin: 4px;
   justify-content: center;
 }
 
 .movie {
   background: darkgray;
   width: 287px;
-  margin: 12px;
+  height: 260px;
+  margin: 8px;
+  text-align: center;
 }
 
 .movie h1 {
@@ -90,6 +94,19 @@ li a {
   display: block;
   margin: 8px auto 14px auto;
   width: 50%;
+}
+
+.details-btn-container {
+  text-align: center;
+}
+
+.details-btn {
+  font-family: "Lato", Arial, Helvetica, sans-serif;
+  padding: 8px;
+  background-color: #ffa000;
+  color: white;
+  text-decoration: none;
+  border-radius: 30px;
 }
 
 .btn-primary {
