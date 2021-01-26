@@ -24,6 +24,37 @@
   margin-right: 15px;
 }
 
+.comment-section {
+  text-align: center;
+}
+
+.add-comment form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.add-comment form img {
+  width: 80x;
+  height: 70px;
+  margin: 10px 10px;
+}
+
+.add-comment form textarea {
+  width: 350px;
+  height: 50px;
+  margin-top: 10px;
+  border-radius: 10px;
+}
+
+.add-comment-btn {
+  width: 100px;
+  height: 25px;
+  margin: 12px 8px;
+  background-color: #009ec7;
+  border-radius: 20px;
+}
+
 @media only screen and (max-width: 600px) {
   .details {
     max-width: 140%;
