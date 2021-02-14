@@ -1,5 +1,6 @@
 const Movie = require("../models/movie");
 const Comment = require("../models/comment");
+const User = require("../models/user");
 const mongoose = require("../config/db");
 
 module.exports.getAll = async function () {
@@ -32,7 +33,7 @@ module.exports.add = async function (
 };
 
 module.exports.findById = async function (id) {
-  const movie = await Movie.findOne({ _id: id });
+  const movie = await Movie.findOne({ _id: id }).lean();
   return {
     id: movie._id,
     name: movie.name,
@@ -61,9 +62,6 @@ module.exports.addComment = async function (userId, movieId, content) {
 };
 
 module.exports.getComments = async function (movieId) {
-  //TODO how check by movieId ???
-  // const movie = await Comment.findById(movieId).populate("movieId").lean();
-  // console.log(movie);
-  // const comments = await Comment.find({ movieId: movie._id });
-  return [];
+  const comments = await Comment.find({ movieId: movieId }).lean();
+  return comments;
 };

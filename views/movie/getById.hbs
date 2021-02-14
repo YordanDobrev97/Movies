@@ -19,7 +19,7 @@
     <div class="add-comment">
         <form action="/movie/addComment" method="POST">
             <img src="https://www.pikpng.com/pngl/m/80-805523_default-avatar-svg-png-icon-free-download-264157.png" />
-            <input hidden name="id" value={{movie.id}} />
+            {{!-- <input hidden name="id" value={{movie.id}} /> --}}
             <textarea name="bodyComment" placeholder="Leave a message"></textarea>
             <input class="add-comment-btn" type="submit" value="Add" />
         </form>
@@ -28,9 +28,18 @@
 
     <div class="all-comments">
         {{#each comments}}
-        <div class="comment-container">
-            <img src={{imageUrl}} />
-            <p>{{content}}</p>
+        <div class="comments-container">
+            <ul id="comments-list" class="comments-list">
+                <li>
+                    <div class="comment-main-level">
+                        <div class="comment-box">
+                            <div class="comment-content">
+                                {{content}}
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            </ul>
         </div>
         {{/each}}
     </div>

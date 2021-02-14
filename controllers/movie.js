@@ -26,9 +26,10 @@ module.exports.all = async function () {
   return movies;
 };
 
-module.exports.getById = async function (id) {
+module.exports.getById = async function (id, userId) {
   const movie = await movieService.findById(id);
-  return movie;
+  const comments = await movieService.getComments(id, userId);
+  return { movie, comments };
 };
 
 module.exports.latestMovies = async function () {
@@ -40,6 +41,4 @@ module.exports.addComment = async function (userId, movieId, body) {
   await movieService.addComment(userId, movieId, body);
 };
 
-module.exports.getComments = async function (movieId) {
-  await movieService.getComments(movieId);
-};
+module.exports.getComments = async function (movieId) {};

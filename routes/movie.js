@@ -1,5 +1,6 @@
 const express = require("express");
 const movieController = require("../controllers/movie");
+const userService = require("../services/userService");
 const { authentication } = require("../middleware/auth");
 const router = express.Router();
 
@@ -19,10 +20,9 @@ router.get("/", authentication, async (req, res) => {
 router.get("/movie/:id", authentication, async (req, res) => {
   const { id } = req.params;
   const movie = await movieController.getById(id);
-  const comments = await movieController.getComments(id);
   res.render("../views/movie/getById", {
-    movie,
-    comments,
+    movie: movie.movie,
+    comments: movie.comments,
     isAuth: req.isAuth,
   });
 });
@@ -39,7 +39,7 @@ router.post("/addMovie", authentication, (req, res) => {
 
 router.post("/movie/addComment", authentication, (req, res) => {
   const { id, bodyComment } = req.body;
-  const userId = getUserId(req);
+  const userId = userService.getUserId(req);
   movieController.addComment(userId, id, bodyComment);
   res.redirect("/movie/" + id);
 });

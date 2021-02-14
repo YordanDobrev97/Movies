@@ -3,6 +3,7 @@ const bcrypt = require("bcrypt");
 const jtw = require("jsonwebtoken");
 
 const privateKey = "secret";
+const jwtDecode = require("jwt-decode");
 
 module.exports.register = async function (username, password, confirmPassword) {
   if (password !== confirmPassword) {
@@ -40,3 +41,9 @@ function generateToken(userObj) {
     privateKey
   );
 }
+
+module.exports.getUserId = function getUserId(req) {
+  const token = req.cookies["userToken"];
+  const decode = jwtDecode(token);
+  return decode.userID;
+};
