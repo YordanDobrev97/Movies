@@ -6,9 +6,19 @@ module.exports.addMovie = async function (
   year,
   date,
   genre,
-  imageUrl
+  imageUrl,
+  shortVideo
 ) {
-  await movieService.add(title, description, genre, year, imageUrl, date, []);
+  await movieService.add(
+    title,
+    description,
+    genre,
+    year,
+    imageUrl,
+    date,
+    [],
+    shortVideo
+  );
 };
 
 module.exports.all = async function () {
@@ -28,4 +38,8 @@ module.exports.latestMovies = async function () {
 
 module.exports.addComment = async function (userId, movieId, body) {
   await movieService.addComment(userId, movieId, body);
+};
+
+module.exports.getComments = async function (movieId) {
+  await movieService.getComments(movieId);
 };

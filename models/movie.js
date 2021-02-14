@@ -8,6 +8,7 @@ const movieSchema = new mongoose.Schema({
   imageUrl: String,
   date: Date,
   actors: Array,
+  videoShort: String,
 });
 
 const Movie = mongoose.model("Movie", movieSchema);

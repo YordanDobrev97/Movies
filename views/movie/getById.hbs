@@ -8,6 +8,8 @@
         <img src={{movie.imageUrl}} />
         <p><strong>Descrption:</strong> {{movie.descrption}}</p>
         <p><strong>Year:</strong> {{movie.year}}</p>
+
+        <iframe width="560" height="315" src={{movie.videoShort}} allowfullscreen></iframe>
     </div>
 </section>
 
@@ -23,4 +25,13 @@
         </form>
     </div>
     {{/if}}
+
+    <div class="all-comments">
+        {{#each comments}}
+        <div class="comment-container">
+            <img src={{imageUrl}} />
+            <p>{{content}}</p>
+        </div>
+        {{/each}}
+    </div>
 </section>

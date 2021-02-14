@@ -19,9 +19,10 @@ router.get("/", authentication, async (req, res) => {
 router.get("/movie/:id", authentication, async (req, res) => {
   const { id } = req.params;
   const movie = await movieController.getById(id);
-
+  const comments = await movieController.getComments(id);
   res.render("../views/movie/getById", {
     movie,
+    comments,
     isAuth: req.isAuth,
   });
 });
@@ -31,8 +32,8 @@ router.get("/addMovie", authentication, (req, res) => {
 });
 
 router.post("/addMovie", authentication, (req, res) => {
-  const { title, description, year, date, genre, image } = req.body;
-  movieController.addMovie(title, description, year, date, genre, image);
+  const { title, description, year, date, genre, image, video } = req.body;
+  movieController.addMovie(title, description, year, date, genre, image, video);
   res.redirect("/");
 });
 

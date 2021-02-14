@@ -6,6 +6,6 @@ mongoose.connect(connectionString, {
   useUnifiedTopology: true,
 });
 
-mongoose.connection.once("open", () => console.log("Connection to database!"));
+mongoose.connection.once("open", () => console.log("Connected to database!"));
 
 module.exports = mongoose;
