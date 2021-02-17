@@ -31,7 +31,7 @@ router.get("/addMovie", authentication, (req, res) => {
   res.render("../views/movie/add", { isAuth: req.isAuth });
 });
 
-router.get("/search", async function (req, res) {
+router.get("/search", authentication, async function (req, res) {
   const { genre } = req.query;
   const searchMovies = await movieController.search(genre);
   const sliderMovies = await movieController.latestMovies();
