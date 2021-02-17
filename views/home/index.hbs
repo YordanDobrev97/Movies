@@ -1,31 +1,38 @@
+<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.7/handlebars.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.7/handlebars.runtime.amd.js"></script>
+
 {{> slider}}
 
 <section class="genres">
     <div class="container">
-        <div class="genre">
-            <input type="checkbox" />
-            <label>Action</label>
-        </div>
-        <div class="genre">
-            <input type="checkbox" />
-            <label>Comedy</label>
-        </div>
-        <div class="genre">
-            <input type="checkbox" />
-            <label>Horror</label>
-        </div>
-        <div class="genre">
-            <input type="checkbox" />
-            <label>Fantastic</label>
-        </div>
-        <div class="genre">
-            <input type="checkbox" />
-            <label>Animation</label>
-        </div>
-        <div class="genre">
-            <input type="checkbox" />
-            <label>Romantic</label>
-        </div>
+        <form action="/search" method="GET">
+            <div class="genre">
+                <input class="search" type="checkbox" name="genre" value="action" />
+                <label>Action</label>
+            </div>
+            <div class="genre">
+                <input class="search" type="checkbox" name="genre" value="comedy" />
+                <label>Comedy</label>
+            </div>
+            <div class="genre">
+                <input class="search" type="checkbox" name="genre" value="horror" />
+                <label>Horror</label>
+            </div>
+            <div class="genre">
+                <input class="search" type="checkbox" name="genre" value="fantastic" />
+                <label>Fantastic</label>
+            </div>
+            <div class="genre">
+                <input class="search" type="checkbox" name="genre" value="animation" />
+                <label>Animation</label>
+            </div>
+            <div class="genre">
+                <input class="search" type="checkbox" name="genre" value="romantic" />
+                <label>Romantic</label>
+            </div>
+
+            <input class="search" type="submit" value="Search" />
+        </form>
     </div>
 </section>
 
@@ -44,3 +51,6 @@
     </div>
     {{/each}}
 </div>
+
+<script>
+</script>

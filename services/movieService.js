@@ -32,6 +32,14 @@ module.exports.add = async function (
   await movie.save();
 };
 
+module.exports.searchByGenre = async function (genre) {
+  const movies = await Movie.find(
+    { genre: genre },
+    "id name descrption imageUrl"
+  ).lean();
+  return movies;
+};
+
 module.exports.findById = async function (id) {
   const movie = await Movie.findOne({ _id: id }).lean();
   return {

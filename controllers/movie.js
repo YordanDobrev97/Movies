@@ -26,6 +26,11 @@ module.exports.all = async function () {
   return movies;
 };
 
+module.exports.search = async function (genre) {
+  const movies = await movieService.searchByGenre(genre);
+  return movies;
+};
+
 module.exports.getById = async function (id, userId) {
   const movie = await movieService.findById(id);
   const comments = await movieService.getComments(id, userId);

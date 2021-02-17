@@ -31,6 +31,17 @@ router.get("/addMovie", authentication, (req, res) => {
   res.render("../views/movie/add", { isAuth: req.isAuth });
 });
 
+router.get("/search", async function (req, res) {
+  const { genre } = req.query;
+  const searchMovies = await movieController.search(genre);
+  const sliderMovies = await movieController.latestMovies();
+  res.render("../views/home/index", {
+    movies: searchMovies,
+    slider: sliderMovies,
+    isAuth: req.isAuth,
+  });
+});
+
 router.post("/addMovie", authentication, (req, res) => {
   const { title, description, year, date, genre, image, video } = req.body;
   movieController.addMovie(title, description, year, date, genre, image, video);
