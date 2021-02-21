@@ -69,7 +69,8 @@ li a {
 }
 
 .movie-container {
-  background-color: #505050;
+  /* background-color: #505050; */
+  background: url("https://static3.depositphotos.com/1003492/169/v/600/depositphotos_1694666-stock-illustration-stars-over-copyspace.jpg");
   display: flex;
   flex-wrap: wrap;
   margin: 4px;

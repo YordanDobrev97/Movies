@@ -24,25 +24,18 @@
                     <a href="/">Movies</a>
                 </li>
                 <li>
-                    <a href="/">Serials</a>
+                    <a href="/actors">Actors</a>
                 </li>
-                <li>
-                    <a href="/">Actors</a>
-                </li>
-                <li>
-                    <a href="/">By years</a>
-                </li>
-                <li>
-                    <a href="/">By country</a>
-                </li>
+                {{#if isAdmin}}
                 <li>
                     <a href="/addMovie">Add movie</a>
                 </li>
-            </ul>
+                <li>
+                    <a href="/administration">Administration</a>
+                </li>
+                {{/if}}
 
-            <div class="search">
-                <input class="input" type="text" placeholder="Търси" />
-            </div>
+            </ul>
 
             <div>
                 {{#if isAuth}}
