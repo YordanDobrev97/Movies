@@ -1,17 +1,20 @@
 <link rel="stylesheet" href="../../public/getById.css">
 
-
-<section class="details">
-    <div class="details-movie">
-        <h1>{{movie.name}}</h1>
-
-        <img src={{movie.imageUrl}} />
-        <p><strong>Descrption:</strong> {{movie.descrption}}</p>
-        <p><strong>Year:</strong> {{movie.year}}</p>
-
-        <iframe width="560" height="315" src={{movie.videoShort}} allowfullscreen></iframe>
+<h1>{{movie.name}}</h1>
+<div class="details-movie">
+    <div class="details-container">
+        <div>
+            <img src={{movie.imageUrl}} />
+        </div>
+        <div class="movie-content">
+            <p><strong>Descrption:</strong> {{movie.descrption}}</p>
+            <p><strong>Year:</strong> {{movie.year}}</p>
+        </div>
     </div>
-</section>
+    <div class="trailer">
+        <iframe src={{movie.videoShort}} allowfullscreen></iframe>
+    </div>
+</div>
 
 <section class="comment-section">
     <hr />
@@ -43,4 +46,3 @@
         </div>
         {{/each}}
     </div>
-</section>

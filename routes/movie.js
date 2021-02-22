@@ -33,7 +33,7 @@ router.get("/addMovie", authentication, (req, res) => {
 
 router.get("/search", authentication, async function (req, res) {
   const { genre } = req.query;
-  const searchMovies = await movieController.search(genre);
+  const searchMovies = await movieController.search(genre.toLowerCase());
   const sliderMovies = await movieController.latestMovies();
   res.render("../views/home/index", {
     movies: searchMovies,
