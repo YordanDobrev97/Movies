@@ -1,0 +1,20 @@
+<link rel="stylesheet" href="/public/actor.css" />
+
+<div class="container">
+    <div class="actor-details">
+        <h1>{{actor.name}}</h1>
+        <img src={{actor.image}} />
+    </div>
+
+    <div class="movies">
+        <h3>Movies:</h3>
+
+        {{#each actor.movies}}
+        <ul>
+            <a href="/movie/{{movieId}}">
+                <li>{{movieName}}</li>
+            </a>
+        </ul>
+        {{/each}}
+    </div>
+</div>

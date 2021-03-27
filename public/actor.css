@@ -1,0 +1,22 @@
+.container {
+  width: 80%;
+  display: flex;
+  background: rgb(214, 208, 208);
+}
+
+.actor-details {
+  padding: 2em;
+}
+
+.actor-details h1 {
+  color: white;
+}
+
+.movies {
+  margin: 70px 4px;
+}
+
+.actor-details img {
+  width: 300px;
+  height: 280px;
+}
