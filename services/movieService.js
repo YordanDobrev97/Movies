@@ -4,7 +4,7 @@ const User = require("../models/user");
 const mongoose = require("../config/db");
 
 module.exports.getAll = async function () {
-  const all = await Movie.find({}, null, { lean: true });
+  const all = await Movie.find({}, null, { lean: true }).sort({ date: "desc" });
   return all;
 };
 
@@ -54,7 +54,7 @@ module.exports.findById = async function (id) {
 
 module.exports.getLatesMovies = async function () {
   const movies = await Movie.find({}, null, { lean: true })
-    .sort({ date: "desc" })
+    .sort({ _id: "desc" })
     .limit(6);
   return movies;
 };

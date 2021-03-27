@@ -11,7 +11,11 @@
 }
 
 .details-movie p {
-  max-width: 60%;
+  max-width: 100%;
+}
+
+.special-detail {
+  color: rgba(11, 26, 243, 0.76);
 }
 
 h1 {
@@ -20,8 +24,8 @@ h1 {
 }
 
 .details-movie img {
-  width: 300px;
-  height: 300px;
+  width: 16em;
+  height: 14em;
   margin-top: 4px;
   margin-right: 15px;
   margin-left: 14px;
@@ -39,16 +43,10 @@ h1 {
   display: flex;
 }
 
-.trailer {
-  display: flex;
-  justify-content: space-between;
-}
-
 .trailer iframe {
-  margin-right: 15px;
-  margin-bottom: 14px;
-  width: 580px;
-  height: 280px;
+  margin-right: 40.2em;
+  width: 252px;
+  height: 220px;
 }
 
 .comment-section {
