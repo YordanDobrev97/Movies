@@ -37,13 +37,25 @@ function generateToken(userObj) {
     {
       userID: userObj._id,
       username: userObj.username,
+      isAdmin: userObj.role || undefined,
     },
     privateKey
   );
 }
 
 module.exports.getUserId = function getUserId(req) {
+  const decodeToken = decode(req);
+  return decodeToken.userID;
+};
+
+module.exports.isAdmin = function (req) {
+  const decodeToken = decode(req);
+  console.log("role", decodeToken);
+  return decodeToken.isAdmin;
+};
+
+function decode(req) {
   const token = req.cookies["userToken"];
   const decode = jwtDecode(token);
-  return decode.userID;
-};
+  return decode;
+}

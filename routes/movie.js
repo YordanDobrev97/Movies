@@ -2,18 +2,22 @@ const express = require("express");
 const movieController = require("../controllers/movie");
 const userService = require("../services/userService");
 const { authentication } = require("../middleware/auth");
+const { isAdmin } = require("../middleware/admin");
+
 const router = express.Router();
 
 const jwtDecode = require("jwt-decode");
 
-router.get("/", authentication, async (req, res) => {
+router.get("/", authentication, isAdmin, async (req, res) => {
   const movies = await movieController.all();
   const sliderMovies = await movieController.latestMovies();
 
+  console.log(req.isAdmin);
   res.render("../views/home/index", {
     movies: movies,
     slider: sliderMovies,
     isAuth: req.isAuth,
+    isAdmin: req.isAdmin,
   });
 });
 
