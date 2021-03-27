@@ -50,7 +50,6 @@ module.exports.getUserId = function getUserId(req) {
 
 module.exports.isAdmin = function (req) {
   const decodeToken = decode(req);
-  console.log("role", decodeToken);
   return decodeToken.isAdmin;
 };
 

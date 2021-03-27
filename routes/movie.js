@@ -12,7 +12,6 @@ router.get("/", authentication, isAdmin, async (req, res) => {
   const movies = await movieController.all();
   const sliderMovies = await movieController.latestMovies();
 
-  console.log(req.isAdmin);
   res.render("../views/home/index", {
     movies: movies,
     slider: sliderMovies,
@@ -21,21 +20,25 @@ router.get("/", authentication, isAdmin, async (req, res) => {
   });
 });
 
-router.get("/movie/:id", authentication, async (req, res) => {
+router.get("/movie/:id", authentication, isAdmin, async (req, res) => {
   const { id } = req.params;
   const movie = await movieController.getById(id);
   res.render("../views/movie/getById", {
     movie: movie.movie,
     comments: movie.comments,
     isAuth: req.isAuth,
+    isAdmin: req.isAdmin,
   });
 });
 
-router.get("/addMovie", authentication, (req, res) => {
-  res.render("../views/movie/add", { isAuth: req.isAuth });
+router.get("/addMovie", authentication, isAdmin, (req, res) => {
+  res.render("../views/movie/add", {
+    isAuth: req.isAuth,
+    isAdmin: req.isAdmin,
+  });
 });
 
-router.get("/search", authentication, async function (req, res) {
+router.get("/search", authentication, isAdmin, async function (req, res) {
   const { genre } = req.query;
   const searchMovies = await movieController.search(genre.toLowerCase());
   const sliderMovies = await movieController.latestMovies();
@@ -43,6 +46,7 @@ router.get("/search", authentication, async function (req, res) {
     movies: searchMovies,
     slider: sliderMovies,
     isAuth: req.isAuth,
+    isAdmin: req.isAdmin,
   });
 });
 
@@ -58,11 +62,5 @@ router.post("/movie/addComment", authentication, (req, res) => {
   movieController.addComment(userId, id, bodyComment);
   res.redirect("/movie/" + id);
 });
-
-function getUserId(req) {
-  const token = req.cookies["userToken"];
-  const decode = jwtDecode(token);
-  return decode.userID;
-}
 
 module.exports = router;

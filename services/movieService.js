@@ -1,7 +1,5 @@
 const Movie = require("../models/movie");
 const Comment = require("../models/comment");
-const User = require("../models/user");
-const mongoose = require("../config/db");
 
 module.exports.getAll = async function () {
   const all = await Movie.find({}, null, { lean: true }).sort({ date: "desc" });

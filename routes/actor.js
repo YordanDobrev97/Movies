@@ -1,20 +1,22 @@
 const express = require("express");
 const { authentication } = require("../middleware/auth");
-const { route } = require("./movie");
+const { isAdmin } = require("../middleware/admin");
 const ActorService = require("../services/actorService");
 const router = express.Router();
 
-router.get("/", authentication, async (req, res) => {
+router.get("/", authentication, isAdmin, async (req, res) => {
   const actors = await ActorService.getAll();
   res.render("../views/actors/index", {
     isAuth: req.isAuth,
+    isAdmin: req.isAdmin,
     actors,
   });
 });
 
-router.get("/add", authentication, (req, res) => {
+router.get("/add", authentication, isAdmin, (req, res) => {
   res.render("../views/actors/add", {
     isAuth: req.isAuth,
+    isAdmin: req.isAdmin,
   });
 });
 
