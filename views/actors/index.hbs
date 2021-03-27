@@ -1,0 +1,13 @@
+<link rel="stylesheet" href="/public/actors.css">
+
+<div class="actor-contaner">
+    {{#each actors}}
+    <div>
+        <a href="/actors/{{_id}}">
+            <img src={{image}} />
+        </a>
+        <h1>{{name}}</h1>
+    </div>
+    {{/each}}
+
+</div>

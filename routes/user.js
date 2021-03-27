@@ -32,7 +32,7 @@ router.post("/register", async (req, res) => {
     confirmPassword
   );
   res.cookie("userToken", token);
-  res.redirect("/login");
+  res.redirect("/user/login");
 });
 
 module.exports = router;

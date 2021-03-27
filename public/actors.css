@@ -1,0 +1,17 @@
+.actor-contaner {
+  margin: 0 auto;
+  display: flex;
+  margin: 8px;
+}
+
+.actor-contaner h1 {
+  color: white;
+  font-size: 16px;
+  text-align: center;
+}
+
+.actor-contaner img {
+  width: 12em;
+  height: 200px;
+  margin: 10px;
+}

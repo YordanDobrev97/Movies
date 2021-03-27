@@ -1,7 +1,6 @@
 .create-movie,
 label {
   color: white;
-  margin: 8px;
 }
 
 body {
@@ -14,11 +13,12 @@ form {
 }
 
 .row {
+  margin: 0 440px;
   margin-bottom: 20px;
 }
 
 .row input {
-  margin: 4px;
+  margin: 4px 30px;
   padding: 2px;
   border-radius: 12px;
   width: 200px;
