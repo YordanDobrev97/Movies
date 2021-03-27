@@ -6,8 +6,6 @@ const { isAdmin } = require("../middleware/admin");
 
 const router = express.Router();
 
-const jwtDecode = require("jwt-decode");
-
 router.get("/", authentication, isAdmin, async (req, res) => {
   const movies = await movieController.all();
   const sliderMovies = await movieController.latestMovies();

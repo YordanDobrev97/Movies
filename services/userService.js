@@ -50,11 +50,20 @@ module.exports.getUserId = function getUserId(req) {
 
 module.exports.isAdmin = function (req) {
   const decodeToken = decode(req);
-  return decodeToken.isAdmin;
+  return decodeToken ? decodeToken.isAdmin : false;
+};
+
+module.exports.getUserId = function getUserId(req) {
+  const decodeToken = decode(req);
+  return decodeToken.userID;
 };
 
 function decode(req) {
-  const token = req.cookies["userToken"];
-  const decode = jwtDecode(token);
-  return decode;
+  try {
+    const token = req.cookies["userToken"];
+    const decode = jwtDecode(token);
+    return decode;
+  } catch (err) {
+    return new Error("no token");
+  }
 }
