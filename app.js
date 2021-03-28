@@ -7,6 +7,7 @@ const movieRoute = require("./routes/movie");
 const userRoute = require("./routes/user");
 const actorRoute = require("./routes/actor");
 const adminRoute = require("./routes/admin");
+const newsRoute = require("./routes/news");
 const port = 5000;
 
 app.engine(
@@ -26,6 +27,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use("/", movieRoute);
 app.use("/actors", actorRoute);
 app.use("/user", userRoute);
+app.use("/news", newsRoute);
 app.use("/administration", adminRoute);
 
 app.listen(port, console.log(`Server started at port ${port}`));

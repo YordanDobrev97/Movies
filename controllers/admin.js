@@ -35,6 +35,5 @@ module.exports.addMovie = async function (
 
 module.exports.addNews = async function (url) {
   const data = await scrapper(url);
-  console.log(data);
-  await newsService.addNews(data.title, data.content, "variety");
+  await newsService.addNews(data.title, data.content, data.image, "variety");
 };

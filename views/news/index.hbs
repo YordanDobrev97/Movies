@@ -1,0 +1,18 @@
+<link rel="stylesheet" href="/public/layout.css" />
+
+
+<hr class="btmspace-80">
+
+<ul class="nospace group overview">
+    {{#each news}}
+    <li class="one_third">
+        <a href="#">
+            <img src="{{image}}">
+        </a>
+        <h6 class="heading">{{title}}</h6>
+        <footer class="nospace">
+            <a class="btn" href="{{_id}}">Read More... &raquo;</a>
+        </footer>
+    </li>
+    {{/each}}
+</ul>
