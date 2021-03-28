@@ -18,6 +18,10 @@ router.get("/addToMovie", authentication, (req, res) => {
   res.render("../views/admin/addActorToMovie", { layout: layoutPath });
 });
 
+router.get("/addMovie", authentication, (req, res) => {
+  res.render("../views/admin/addMovie", { layout: layoutPath });
+});
+
 router.post("/addNewActor", authentication, async (req, res) => {
   let { name, image } = req.body;
   await adminController.add(name, image);
@@ -27,6 +31,20 @@ router.post("/addNewActor", authentication, async (req, res) => {
 router.post("/addToMovie", authentication, async (req, res) => {
   const { actorName, movieName } = req.body;
   await adminController.addActorToMovie(actorName, movieName);
+  res.redirect("/");
+});
+
+router.post("/addMovie", authentication, async (req, res) => {
+  const { title, description, year, date, genre, image, video } = req.body;
+  await adminController.addMovie(
+    title,
+    description,
+    year,
+    date,
+    genre,
+    image,
+    video
+  );
   res.redirect("/");
 });
 

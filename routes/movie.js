@@ -29,13 +29,6 @@ router.get("/movie/:id", authentication, isAdmin, async (req, res) => {
   });
 });
 
-router.get("/addMovie", authentication, isAdmin, (req, res) => {
-  res.render("../views/movie/add", {
-    isAuth: req.isAuth,
-    isAdmin: req.isAdmin,
-  });
-});
-
 router.get("/search", authentication, isAdmin, async function (req, res) {
   const { genre } = req.query;
   const searchMovies = await movieController.search(genre.toLowerCase());
@@ -46,12 +39,6 @@ router.get("/search", authentication, isAdmin, async function (req, res) {
     isAuth: req.isAuth,
     isAdmin: req.isAdmin,
   });
-});
-
-router.post("/addMovie", authentication, (req, res) => {
-  const { title, description, year, date, genre, image, video } = req.body;
-  movieController.addMovie(title, description, year, date, genre, image, video);
-  res.redirect("/");
 });
 
 router.post("/movie/addComment", authentication, (req, res) => {

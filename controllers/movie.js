@@ -1,26 +1,5 @@
 const movieService = require("../services/movieService");
 
-module.exports.addMovie = async function (
-  title,
-  description,
-  year,
-  date,
-  genre,
-  imageUrl,
-  shortVideo
-) {
-  await movieService.add(
-    title,
-    description,
-    genre,
-    year,
-    imageUrl,
-    date,
-    [],
-    shortVideo
-  );
-};
-
 module.exports.all = async function () {
   const movies = await movieService.getAll();
   return movies;
