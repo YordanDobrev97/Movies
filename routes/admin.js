@@ -22,6 +22,10 @@ router.get("/addMovie", authentication, (req, res) => {
   res.render("../views/admin/addMovie", { layout: layoutPath });
 });
 
+router.get("/addNews", authentication, (req, res) => {
+  res.render("../views/admin/addNews", { layout: layoutPath });
+});
+
 router.post("/addNewActor", authentication, async (req, res) => {
   let { name, image } = req.body;
   await adminController.add(name, image);
@@ -46,6 +50,14 @@ router.post("/addMovie", authentication, async (req, res) => {
     video
   );
   res.redirect("/");
+});
+
+router.post("/addNews", authentication, async (req, res) => {
+  const { source } = req.body;
+  console.log(source);
+
+  await adminController.addNews(source);
+  res.redirect("/administration");
 });
 
 module.exports = router;
