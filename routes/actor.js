@@ -24,18 +24,4 @@ router.get("/:id", authentication, isAdmin, async (req, res) => {
   });
 });
 
-router.get("/add", authentication, isAdmin, (req, res) => {
-  res.render("../views/actors/add", {
-    isAuth: req.isAuth,
-    isAdmin: req.isAdmin,
-  });
-});
-
-router.post("/add", authentication, async (req, res) => {
-  let { name, movies, image } = req.body;
-  const resultMovies = movies.split(", ");
-  await actorController.add(name, image, resultMovies);
-  res.redirect("/actors");
-});
-
 module.exports = router;

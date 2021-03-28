@@ -9,7 +9,7 @@ body {
 
 form {
   display: flexbox;
-  justify-content: center;
+  margin: auto;
 }
 
 .row {
@@ -17,18 +17,26 @@ form {
   margin-bottom: 20px;
 }
 
+label {
+  color: black;
+  text-align: center;
+  position: relative;
+  top: 38px;
+}
+
 .row input {
-  margin: 4px 30px;
+  margin-left: 6em;
   padding: 2px;
   border-radius: 12px;
-  width: 200px;
+  width: 20em;
   height: 25px;
 }
 
 .create-btn {
-  width: 250px;
-  height: 30px;
-  margin: 8px;
+  width: 15em;
+  height: 2em;
+  margin-left: 130px;
+  margin-top: 10px;
   padding: 4px;
   background-color: teal;
   color: white;

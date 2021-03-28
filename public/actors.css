@@ -1,7 +1,8 @@
 .actor-contaner {
   margin: 0 auto;
   display: flex;
-  margin: 8px;
+  flex-wrap: wrap;
+  margin: 20px 8px;
 }
 
 .actor-contaner h1 {
@@ -13,5 +14,5 @@
 .actor-contaner img {
   width: 12em;
   height: 200px;
-  margin: 10px;
+  margin: 20px 10px;
 }
