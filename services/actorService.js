@@ -12,6 +12,17 @@ module.exports.add = async function (name, image, movies) {
   await newActor.save();
 };
 
+module.exports.addActorToMovie = async function (actorName, movieName) {
+  const actorObj = await Actor.findOne({ name: actorName });
+  const movieObj = await Movie.findOne({ name: movieName });
+
+  actorObj.movies.push(movieObj._id);
+  movieObj.actors.push(actorObj._id);
+
+  await actorObj.save();
+  await movieObj.save();
+};
+
 module.exports.getById = async function (id) {
   const actor = await Actor.findOne({ _id: id }).lean();
   const movies = await getMovies(actor);

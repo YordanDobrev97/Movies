@@ -14,10 +14,20 @@ router.get("/addNewActor", authentication, (req, res) => {
   res.render("../views/admin/addActor", { layout: layoutPath });
 });
 
+router.get("/addToMovie", authentication, (req, res) => {
+  res.render("../views/admin/addActorToMovie", { layout: layoutPath });
+});
+
 router.post("/addNewActor", authentication, async (req, res) => {
   let { name, image } = req.body;
   await adminController.add(name, image);
   res.redirect("/actors");
+});
+
+router.post("/addToMovie", authentication, async (req, res) => {
+  const { actorName, movieName } = req.body;
+  await adminController.addActorToMovie(actorName, movieName);
+  res.redirect("/");
 });
 
 module.exports = router;
