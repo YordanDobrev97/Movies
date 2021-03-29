@@ -15,12 +15,11 @@ router.get("/", authentication, isAdmin, async (req, res) => {
 
 router.get("/:id", authentication, isAdmin, async (req, res) => {
   const { id } = req.params;
-  const actor = await actorController.getById(id);
-  console.log(actor);
-  res.render("../views/actors/getById", {
+  const news = await newsController.getById(id);
+  res.render("../views/news/getById", {
     isAuth: req.isAuth,
     isAdmin: req.isAdmin,
-    actor: actor,
+    news: news,
   });
 });
 

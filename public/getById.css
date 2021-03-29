@@ -1,16 +1,16 @@
 @import "style.css";
 
-.details-movie {
+.details {
   background-color: gainsboro;
   max-width: 80%;
-  max-height: 600px;
+  max-height: 70%;
   margin: 10px auto;
   display: flex;
   justify-content: flex-end;
   flex-wrap: wrap;
 }
 
-.details-movie p {
+.details p {
   max-width: 100%;
 }
 
@@ -23,7 +23,7 @@ h1 {
   color: azure;
 }
 
-.details-movie img {
+.details img {
   width: 16em;
   height: 14em;
   margin-top: 4px;
@@ -31,11 +31,11 @@ h1 {
   margin-left: 14px;
 }
 
-.movie-content {
+.content {
   margin-top: 4px;
 }
 
-.movie-content p {
+.content p {
   margin-bottom: 4px;
 }
 
