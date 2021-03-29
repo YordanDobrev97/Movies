@@ -1,6 +1,8 @@
 # Movies
 ## :pencil: Project Description
-Web Application for movies type Imdb build with Express.js, Handlebars view engine and MongoDb Database.
+It is a ready-to-use Express.js application.
+Each user can see comments and leave a comment on a movie.
+Actors, films and current news related to the film industry can be added through the administration.
 
 ## :hammer: Used technologies
 * HTML5
@@ -20,12 +22,17 @@ Web Application for movies type Imdb build with Express.js, Handlebars view engi
 **Movie details page**
 ![detailsPage](https://user-images.githubusercontent.com/42092212/112737798-c389f800-8f65-11eb-815d-6de332ad59cd.png)
 
+**Most Liked Actors**
+![actors](https://user-images.githubusercontent.com/42092212/112871418-eb916c80-90c7-11eb-92c1-5ce43dfcae87.png)
+
+**Top News**
+![news](https://user-images.githubusercontent.com/42092212/112871491-fb10b580-90c7-11eb-8df5-288fc9b8ba5f.png)
+
 **Search Page**
 ![SearchPage](https://user-images.githubusercontent.com/42092212/112737800-c8e74280-8f65-11eb-80da-07f3f019730f.png)
 
 **Admin Page**
 ![AdminPage](https://user-images.githubusercontent.com/42092212/112737803-cd136000-8f65-11eb-9bff-d7a9f0d60e2c.png)
-
 
 
 ## Author
