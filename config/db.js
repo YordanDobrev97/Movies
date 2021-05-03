@@ -1,4 +1,4 @@
-const connectionString = `mongodb://localhost:27017/filmi`;
+const connectionString = `mongodb+srv://admin:123qweasdzxc98830@cluster0.zbkcm.mongodb.net/filmiibm?retryWrites=true&w=majority`;
 const mongoose = require("mongoose");
 
 mongoose.connect(connectionString, {
