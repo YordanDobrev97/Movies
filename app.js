@@ -8,7 +8,7 @@ const userRoute = require("./routes/user");
 const actorRoute = require("./routes/actor");
 const adminRoute = require("./routes/admin");
 const newsRoute = require("./routes/news");
-const port = 5000;
+const port = process.env.PORT || 5000;
 
 app.engine(
   "hbs",
