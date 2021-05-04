@@ -1,6 +1,6 @@
 # Movies
 
-Live - https://filmiibm.herokuapp.com/
+Live - https://appmoviess.herokuapp.com/
 
 ## :pencil: Project Description
 It is a ready-to-use Express.js application.
