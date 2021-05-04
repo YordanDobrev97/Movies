@@ -1,6 +1,6 @@
 <link rel="stylesheet" href="../../public/getById.css">
 
-<h1>{{movie.name}}</h1>
+<h1 class="details-heading">{{movie.name}}</h1>
 <div class="details">
     <div class="details-container">
         <div>
@@ -23,12 +23,13 @@
         <form action="/movie/addComment" method="POST">
             <img src="https://www.pikpng.com/pngl/m/80-805523_default-avatar-svg-png-icon-free-download-264157.png" />
             <input hidden name="id" value={{movie.id}} />
-            <textarea name="bodyComment" placeholder="Leave a message"></textarea>
+            <textarea name="bodyComment" placeholder="Write your comment"></textarea>
             <input class="add-comment-btn" type="submit" value="Add" />
         </form>
     </div>
     {{/if}}
 
+    <div>Comments</div>
     <div class="all-comments">
         {{#each comments}}
         <div class="comments-container">

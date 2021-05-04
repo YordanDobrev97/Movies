@@ -1,165 +1,171 @@
 * {
   margin: 0;
   padding: 0;
-  box-sizing: content-box;
+  box-sizing: border-box;
 }
 
 body {
-  background: black;
-  font-family: "Helvetica", Arial, Helvetica, Sans-serif, Verdana;
+  font-family: Verdana, Geneva, Tahoma, sans-serif "Courier New", Courier,
+    monospace;
 }
 
-.site {
-  margin: 10px 100px;
-}
-
-.logo > img {
-  width: 100px;
-  margin: 0px 26px;
+.logo img {
+  width: 3em;
+  position: relative;
+  top: 2px;
+  left: 20px;
 }
 
 nav {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  align-content: stretch;
-  margin: 12px;
-  align-items: center;
-  background: #314a50;
+  background-color: crimson;
+  max-height: 40%;
 }
 
-nav ul {
+nav,
+ul {
   display: flex;
-  flex-wrap: wrap;
-  margin: 5px;
-  padding: 12px;
 }
+
+ul {
+  margin: auto;
+}
+
 li {
+  padding: 8px;
   list-style-type: none;
-  margin: 10px;
 }
 
-li a {
+a {
   text-decoration: none;
   color: white;
-}
-
-.slider ul {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-
-.slider img {
-  width: 120px;
-  height: 120px;
-}
-
-.btn-left,
-.btn-right {
-  width: 30px;
-  height: 40px;
-  align-self: center;
-}
-
-.btn-left > img,
-.btn-right > img {
-  width: 30px;
-  height: 35px;
-}
-
-.movie-container {
-  /* background-color: #505050; */
-  /* background: url("https://static3.depositphotos.com/1003492/169/v/600/depositphotos_1694666-stock-illustration-stars-over-copyspace.jpg"); */
-  display: flex;
-  flex-wrap: wrap;
-  margin: 4px auto;
-  width: 80%;
-  background: rgb(245, 245, 183);
-  justify-content: center;
-}
-
-.movie {
-  background: rgb(61, 61, 61);
-  width: 30%;
-  height: 260px;
-  margin: 8px auto;
-  text-align: center;
-}
-
-.movie h1 {
-  text-align: center;
   font-size: 18px;
 }
 
-.movie img {
-  width: 50%;
-  height: 130px;
-  display: block;
-  margin: 8px auto 14px auto;
-  width: 50%;
-}
-
-.details-btn-container {
-  text-align: center;
-}
-
-.details-btn {
-  font-family: "Lato", Arial, Helvetica, sans-serif;
-  padding: 8px;
+.auth {
   display: flex;
-  justify-content: center;
-  background-color: #ffa000;
-  color: white;
-  text-decoration: none;
-  border-radius: 30px;
+  align-self: center;
 }
 
-.btn-primary {
-  font-family: Arial, Helvetica, sans-serif;
-  padding: 3px;
+.auth button {
+  width: 7em;
+  height: 2em;
+  margin-right: 10px;
   background-color: #007bff;
-  border-radius: 5px;
-  margin: 8px;
-  width: 81px;
-  height: 30px;
 }
 
-.btn-primary a {
-  color: white;
+.movie-container .movie div a img {
+  width: 10em;
+  height: 10em;
 }
 
-.title {
-  text-align: center;
-  color: white;
+.movie-section-container {
+  display: flex;
+}
+
+.movie-container {
+  display: flex;
+  align-self: flex-start;
+  margin: 50px auto;
+  flex-wrap: wrap;
+}
+
+.movie {
+  width: 20%;
+  margin: 15px;
+}
+
+.genre {
+  width: 80px;
+}
+
+.genres {
+  background-color: crimson;
+}
+
+.genres .container {
+  display: flex;
+  align-items: flex-start;
+  height: 100vh;
 }
 
 .container form {
   display: flex;
-  background-color: white;
-  justify-content: center;
-  align-items: center;
-  height: 40px;
+  flex-direction: column;
+  align-self: center;
+  padding-bottom: 200px;
+  padding-right: 50px;
+  padding-left: 2px;
 }
 
-.genre {
-  margin: 0px 12px;
+h1 {
+  font-size: 16px;
 }
 
-.search {
-  margin: 8px;
-  padding: 3px 8px;
-  background-color: rgb(27, 51, 51);
-  border-radius: 8px;
+label {
   color: white;
 }
 
+.news {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.heading {
+  font-size: 16px;
+}
+
+.description {
+  color: black;
+}
+
+.search {
+  border-radius: 26%;
+  margin-left: auto;
+  margin-top: 10px;
+  padding: 5px;
+}
+
 @media only screen and (max-width: 600px) {
-  .search input {
-    width: 130px;
+  .logo img {
+    display: none;
   }
 
-  .slider {
-    display: none;
+  .auth button {
+    width: 5.5em;
+    height: 2em;
+  }
+
+  .movie-container {
+    flex-direction: column;
+  }
+  h1 {
+    font-size: 20px;
+    width: 210px;
+  }
+
+  .news {
+    flex-wrap: wrap;
+    flex-direction: column;
+  }
+
+  .curent a img {
+    width: 340px;
+  }
+
+  div.details h1 {
+    width: 100%;
+  }
+
+  div.details img {
+    margin-right: 30px;
+    width: 14em;
+  }
+
+  h6.heading {
+    font-size: 20px;
+  }
+
+  div.details p {
+    max-width: 96%;
   }
 }

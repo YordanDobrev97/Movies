@@ -1,55 +1,56 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.7/handlebars.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.7/handlebars.runtime.amd.js"></script>
 
-{{> slider}}
 
-<section class="genres">
-    <div class="container">
-        <form action="/search" method="GET">
-            <div class="genre">
-                <input class="search" type="checkbox" name="genre" value="action" />
-                <label>Action</label>
-            </div>
-            <div class="genre">
-                <input class="search" type="checkbox" name="genre" value="comedy" />
-                <label>Comedy</label>
-            </div>
-            <div class="genre">
-                <input class="search" type="checkbox" name="genre" value="horror" />
-                <label>Horror</label>
-            </div>
-            <div class="genre">
-                <input class="search" type="checkbox" name="genre" value="fantastic" />
-                <label>Fantastic</label>
-            </div>
-            <div class="genre">
-                <input class="search" type="checkbox" name="genre" value="animation" />
-                <label>Animation</label>
-            </div>
-            <div class="genre">
-                <input class="search" type="checkbox" name="genre" value="romantic" />
-                <label>Romantic</label>
-            </div>
+<div class="movie-section-container">
+    <section class="genres">
+        <div class="container">
+            <form action="/search" method="GET">
+                <div class="genre">
+                    <input class="search" type="checkbox" name="genre" value="action" />
+                    <label>Action</label>
+                </div>
+                <div class="genre">
+                    <input class="search" type="checkbox" name="genre" value="comedy" />
+                    <label>Comedy</label>
+                </div>
+                <div class="genre">
+                    <input class="search" type="checkbox" name="genre" value="horror" />
+                    <label>Horror</label>
+                </div>
+                <div class="genre">
+                    <input class="search" type="checkbox" name="genre" value="fantastic" />
+                    <label>Fantastic</label>
+                </div>
+                <div class="genre">
+                    <input class="search" type="checkbox" name="genre" value="animation" />
+                    <label>Animation</label>
+                </div>
+                <div class="genre">
+                    <input class="search" type="checkbox" name="genre" value="romantic" />
+                    <label>Romantic</label>
+                </div>
 
-            <input class="search" type="submit" value="Search" />
-        </form>
-    </div>
-</section>
-
-<div class="movie-container">
-    {{#each movies}}
-    <div class="movie">
-        <div>
-            <h1 class="title">{{name}}</h1>
+                <input class="search" type="submit" value="Search" />
+            </form>
         </div>
-        <div>
-            <a href='/movie/{{_id}}'>
-                <img src={{imageUrl}} />
-            </a>
-            <a href='/movie/{{_id}}' class="details-btn">Details</a>
+    </section>
+
+    <section class="movie-container">
+        {{#each movies}}
+        <div class="movie">
+            <div>
+                <h1 class="title">{{name}}</h1>
+            </div>
+            <div>
+                <a href='/movie/{{_id}}'>
+                    <img src={{imageUrl}} />
+                </a>
+                <a href='/movie/{{_id}}' class="details-btn">Details</a>
+            </div>
         </div>
-    </div>
-    {{/each}}
+        {{/each}}
+    </section>
 </div>
 
 <script>

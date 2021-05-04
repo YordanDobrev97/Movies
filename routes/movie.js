@@ -8,11 +8,9 @@ const router = express.Router();
 
 router.get("/", authentication, isAdmin, async (req, res) => {
   const movies = await movieController.all();
-  const sliderMovies = await movieController.latestMovies();
 
   res.render("../views/home/index", {
     movies: movies,
-    slider: sliderMovies,
     isAuth: req.isAuth,
     isAdmin: req.isAdmin,
   });
@@ -32,10 +30,8 @@ router.get("/movie/:id", authentication, isAdmin, async (req, res) => {
 router.get("/search", authentication, isAdmin, async function (req, res) {
   const { genre } = req.query;
   const searchMovies = await movieController.search(genre.toLowerCase());
-  const sliderMovies = await movieController.latestMovies();
   res.render("../views/home/index", {
     movies: searchMovies,
-    slider: sliderMovies,
     isAuth: req.isAuth,
     isAdmin: req.isAdmin,
   });
